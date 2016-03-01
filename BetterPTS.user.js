@@ -2,7 +2,7 @@
 // @name PTS+
 // @description Better PlanetTeamspeak
 // @author Bluscream
-// @version 1.0
+// @version 1.0.1
 // @encoding utf-8
 // @icon https://www.planetteamspeak.com/wp-content/themes/planetteamspeak/favicon.ico
 // @homepage https://r4p3.net
@@ -69,8 +69,8 @@ pts_publicServers = function() {
         jQuery('#public_servers_button').click(function(){ pts_publicServers(); });
         if (jQuery('.uk-article-title').text() == "Search Results"){
             jQuery('a[href^="https://www.planetteamspeak.com/serverlist/result/server/ip/"]').each( function( index, element ){
-                var href = $(this).attr("href");
-                jQuery(this).before('<a class="stylish_dontparse" href="ts3server://'+href.substr(href.lastIndexOf('/') + 1)+'"><img src="'+ts3server_icon+'"></a>&nbsp;&nbsp;&nbsp;');
+                var href = jQuery(this).attr("href");var ip = href.substr(href.lastIndexOf('/') + 1);
+                jQuery(this).before('<a class="stylish_dontparse" title="'+ip+'" href="ts3server://'+ip+'"><img src="'+ts3server_icon+'"></a>&nbsp;&nbsp;&nbsp;');
             });
         }
         /*jQuery('pre[class="de1"]').each( function( index, element ){
