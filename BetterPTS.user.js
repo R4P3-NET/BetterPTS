@@ -2,7 +2,7 @@
 // @name PTS+
 // @description Better PlanetTeamspeak
 // @author Bluscream
-// @version 1.4.1
+// @version 1.0
 // @encoding utf-8
 // @icon https://www.planetteamspeak.com/wp-content/themes/planetteamspeak/favicon.ico
 // @homepage https://r4p3.net
