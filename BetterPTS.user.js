@@ -63,14 +63,23 @@ pts_publicServers = function() {
     'use strict';
     jQuery( document ).ready(function() {
         var $=jQuery.noConflict();
+        jQuery('head').append('<link rel="stylesheet" href="https://rawgit.com/R4P3-NET/BetterPTS/master/css/main.css" type="text/css" />');
+        jQuery('.tsicon-client_show').addClass('stylish_dontparse');
         jQuery('form[action="//www.planetteamspeak.com/serverlist/result/"]>fieldset>input[type="submit"]').after('&nbsp;&nbsp;<button id="public_servers_button" class="uk-button uk-button-success value="Public Servers">Public Servers</button>');
         jQuery('#public_servers_button').click(function(){ pts_publicServers(); });
         if (jQuery('.uk-article-title').text() == "Search Results"){
             jQuery('a[href^="https://www.planetteamspeak.com/serverlist/result/server/ip/"]').each( function( index, element ){
                 var href = $(this).attr("href");
-                $(this).before('<a class="stylish_dontparse" href="ts3server://'+href.substr(href.lastIndexOf('/') + 1)+'"><img src="'+ts3server_icon+'"></a>&nbsp;&nbsp;&nbsp;');
+                jQuery(this).before('<a class="stylish_dontparse" href="ts3server://'+href.substr(href.lastIndexOf('/') + 1)+'"><img src="'+ts3server_icon+'"></a>&nbsp;&nbsp;&nbsp;');
             });
         }
+        /*jQuery('pre[class="de1"]').each( function( index, element ){
+            var text = $(element).text();
+            console.log(text);
+            var match = text.substr(text.indexOf(' ')+1);
+            console.log(match);
+            jQuery('pre[class="de1"]').wrap('<a href="'+match+'"></a>');
+        });*/
         console.log(pts_name+' loaded...');
     });
 })();
