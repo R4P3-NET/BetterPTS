@@ -69,6 +69,7 @@ pts_publicServers = function(country) {
     'use strict';
     jQuery( document ).ready(function() {
         var $=jQuery.noConflict();
+        window.reload = function() { window.location.href = window.location.href; };
         jQuery('head').append('<link rel="stylesheet" href="https://rawgit.com/R4P3-NET/BetterPTS/master/css/main.css" type="text/css" />');
         jQuery('.tsicon-client_show').addClass('stylish_dontparse');
         jQuery('form[action="//www.planetteamspeak.com/serverlist/result/"]>fieldset>input[type="submit"]').after('&nbsp;&nbsp;<button id="public_servers_button" class="uk-button uk-button-success value="Public Servers">Public Servers</button>');
@@ -87,8 +88,7 @@ pts_publicServers = function(country) {
         jQuery('#server_filter>div>form>.uk-button.uk-button-primary').after('&nbsp;&nbsp;&nbsp;<a href="#" id="ts3_link_params_button" class="uk-button uk-button-primary">Advanced Link Parameters</a>');
         jQuery('#ts3_link_params_button').click(function(){
             var params = prompt("Please enter a parameter.", "?nickname=UserNickname&password=serverPassword&channel=MyDefaultChannel&cid=channelID&channelpassword=defaultChannelPassword&token=TokenKey&addbookmark=MyBookMarkLabel");
-            if (params) { localStorage.setItem('ts3_link_params', params); console.log('Set advanced ts3server:// link parameters to: "'+localStorage.getItem('ts3_link_params')+'"'); }else{ localStorage.setItem('ts3_link_params', params); console.log('Cleared advanced ts3server:// link parameters.'); }
-            history.go();
+            if (params || params !== null) { localStorage.setItem('ts3_link_params', params); console.log('Set advanced ts3server:// link parameters to: "'+localStorage.getItem('ts3_link_params')+'"');window.reload(); }else{ localStorage.setItem('ts3_link_params', params); console.log('Cleared advanced ts3server:// link parameters.');window.reload(); }
         });
         /*jQuery('pre[class="de1"]').each( function( index, element ){
             var text = $(element).text();
