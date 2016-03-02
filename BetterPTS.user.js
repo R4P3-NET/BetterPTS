@@ -2,7 +2,7 @@
 // @name PTS+
 // @description Better PlanetTeamspeak
 // @author Bluscream
-// @version 1.0.4
+// @version 1.0.5
 // @encoding utf-8
 // @icon https://www.planetteamspeak.com/wp-content/themes/planetteamspeak/favicon.ico
 // @homepage https://r4p3.net
@@ -84,8 +84,10 @@ pts_publicServers = function(country) {
                     jQuery(this).before('<a class="stylish_dontparse" title="'+ip+'" href="ts3server://'+ip+'"><img src="'+ts3server_icon+'"></a>&nbsp;&nbsp;&nbsp;');
                 }
             });
+        }else if (str.indexOf("Server Details") >= 0){
+            jQuery('.uk-button-success.serverbutton').addClass('stylish_dontparse');
         }
-        jQuery('#server_filter>div>form>.uk-button.uk-button-primary').after('&nbsp;&nbsp;&nbsp;<a href="#" id="ts3_link_params_button" class="uk-button uk-button-primary">Advanced Link Parameters</a>');
+        jQuery('#server_filter>div>form>.uk-button.uk-button-primary').after('&nbsp;&nbsp;&nbsp;<a id="ts3_link_params_button" class="uk-button uk-button-primary">Advanced Link Parameters</a>');
         jQuery('#ts3_link_params_button').click(function(){
             var params = prompt("Please enter a parameter.", "?nickname=UserNickname&password=serverPassword&channel=MyDefaultChannel&cid=channelID&channelpassword=defaultChannelPassword&token=TokenKey&addbookmark=MyBookMarkLabel");
             if ((params) && (params !== null) && (params !== "")) { localStorage.setItem('ts3_link_params', params); console.log(pts_name+' Set advanced ts3server:// link parameters to: "'+localStorage.getItem('ts3_link_params')+'"');window.reload(); }else{ localStorage.removeItem('ts3_link_params'); console.log(pts_name+' Cleared advanced ts3server:// link parameters.');window.reload(); }
