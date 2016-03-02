@@ -88,7 +88,7 @@ pts_publicServers = function(country) {
         jQuery('#server_filter>div>form>.uk-button.uk-button-primary').after('&nbsp;&nbsp;&nbsp;<a href="#" id="ts3_link_params_button" class="uk-button uk-button-primary">Advanced Link Parameters</a>');
         jQuery('#ts3_link_params_button').click(function(){
             var params = prompt("Please enter a parameter.", "?nickname=UserNickname&password=serverPassword&channel=MyDefaultChannel&cid=channelID&channelpassword=defaultChannelPassword&token=TokenKey&addbookmark=MyBookMarkLabel");
-            if (params || params !== null) { localStorage.setItem('ts3_link_params', params); console.log('Set advanced ts3server:// link parameters to: "'+localStorage.getItem('ts3_link_params')+'"');window.reload(); }else{ localStorage.setItem('ts3_link_params', params); console.log('Cleared advanced ts3server:// link parameters.');window.reload(); }
+            if (params || params !== null) { localStorage.setItem('ts3_link_params', params); console.log(pts_name+' Set advanced ts3server:// link parameters to: "'+localStorage.getItem('ts3_link_params')+'"');window.reload(); }else{ localStorage.removeItem('ts3_link_params'); console.log(pts_name+' Cleared advanced ts3server:// link parameters.');window.reload(); }
         });
         /*jQuery('pre[class="de1"]').each( function( index, element ){
             var text = $(element).text();
