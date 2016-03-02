@@ -2,7 +2,7 @@
 // @name PTS+
 // @description Better PlanetTeamspeak
 // @author Bluscream
-// @version 1.0.1
+// @version 1.0.2
 // @encoding utf-8
 // @icon https://www.planetteamspeak.com/wp-content/themes/planetteamspeak/favicon.ico
 // @homepage https://r4p3.net
@@ -25,8 +25,8 @@ js_insertItem = function(parent, html, prepend) {
     if(prepend){ jQuery(parent).prepend(html); }else{ jQuery(parent).append(html); }
 };
 
-//pts_listServers(servername, country, serverstatus, usersmin, usersmax, slotsmin, slotsmax, serverflagpw, serverflagcc, purge);
-pts_listServers = function(servername, country, serverstatus, usersmin, usersmax, slotsmin, slotsmax, serverflagpw, serverflagcc, purge) {
+//pts_listServers(servername, country, serverstatus, usersmin, usersmax, slotsmin, slotsmax, serverflagpw, serverflagcc, submit);
+pts_listServers = function(servername, country, serverstatus, usersmin, usersmax, slotsmin, slotsmax, serverflagpw, serverflagcc, submit) {
     jQuery('.uk-search-field').val('');
     jQuery("input[data-uk-modal=\"{target:'#server_filter'}\"]").click();
     jQuery('select[name="serverflagcc"]').livequery(function(){
@@ -41,22 +41,28 @@ pts_listServers = function(servername, country, serverstatus, usersmin, usersmax
             jQuery('select[name="serverflagpw"]').val('none');
             jQuery('select[name="serverflagcc"]').val('none');
         }else{*/
-            if(servername){jQuery('input[name="servername"]').val('');}
-            if(country){jQuery('select[name="country"]').val('none');}
-            if(serverstatus){jQuery('select[name="serverstatus"]').val('1');}
-            if(usersmin){jQuery('input[name="usersmin"]').val('1');}
+            if(servername){jQuery('input[name="servername"]').val(servername);}
+            if(country){jQuery('select[name="country"]').val(country);}
+            if(serverstatus){jQuery('select[name="serverstatus"]').val(serverstatus);}
+            if(usersmin){jQuery('input[name="usersmin"]').val(usersmin);}
             if(usersmax){jQuery('input[name="usersmax"]').val(usersmax);}
-            if(slotsmin){jQuery('input[name="slotsmin"]').val('1');}
+            if(slotsmin){jQuery('input[name="slotsmin"]').val(slotsmin);}
             if(slotsmax){jQuery('input[name="slotsmax"]').val(slotsmax);}
-            if(serverflagpw){jQuery('select[name="serverflagpw"]').val('0');}
-            if(serverflagcc){jQuery('select[name="serverflagcc"]').val('1');}
+            if(serverflagpw){jQuery('select[name="serverflagpw"]').val(serverflagpw);}
+            if(serverflagcc){jQuery('select[name="serverflagcc"]').val(serverflagcc);}
         //}
-        jQuery('form[action="//www.planetteamspeak.com/serverlist/result/"]>input[type="submit"]').click();
+        if(submit){
+            jQuery('form[action="//www.planetteamspeak.com/serverlist/result/"]>input[type="submit"]').click();
+        }
     });
 };
 //pts_publicServers();
 pts_publicServers = function() {
-    pts_listServers('', 'none', '1', '1', '', '1', '', '0', '1');
+    if(country){
+            pts_listServers('', country, '1', '1', '', '1', '', '0', '1', 1, 1);
+    }else{
+            pts_listServers('', 'none', '1', '1', '', '1', '', '0', '1', 1);
+    }
 };
 
 (function() {
@@ -67,7 +73,8 @@ pts_publicServers = function() {
         jQuery('.tsicon-client_show').addClass('stylish_dontparse');
         jQuery('form[action="//www.planetteamspeak.com/serverlist/result/"]>fieldset>input[type="submit"]').after('&nbsp;&nbsp;<button id="public_servers_button" class="uk-button uk-button-success value="Public Servers">Public Servers</button>');
         jQuery('#public_servers_button').click(function(){ pts_publicServers(); });
-        if (jQuery('.uk-article-title').text() == "Search Results"){
+        var str = jQuery('.uk-article-title').text();
+        if (str.indexOf("Search Results") >= 0) {
             jQuery('a[href^="https://www.planetteamspeak.com/serverlist/result/server/ip/"]').each( function( index, element ){
                 var href = jQuery(this).attr("href");var ip = href.substr(href.lastIndexOf('/') + 1);
                 jQuery(this).before('<a class="stylish_dontparse" title="'+ip+'" href="ts3server://'+ip+'"><img src="'+ts3server_icon+'"></a>&nbsp;&nbsp;&nbsp;');
