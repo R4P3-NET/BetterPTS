@@ -13,6 +13,7 @@
 // @contactURL https://r4p3.net/members/bluscream.53/
 // @twitterURL https://twitter.com/R4P3_NET
 // @homepage https://r4p3.net
+// @namespace   admin@timo.de.vc
 // @author Bluscream
 // @encoding utf-8
 // @grant unsafeWindow
