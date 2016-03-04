@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name PTS+
-// @description Better PlanetTeamspeak
+// @description Better PlanetTeamspeak.
 // @version 1.0.5
 // @match *://*.planetteamspeak.com/*
 // @include *.planetteamspeak.com*
