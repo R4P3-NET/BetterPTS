@@ -6,8 +6,8 @@
 // @encoding utf-8
 // @icon https://www.planetteamspeak.com/wp-content/themes/planetteamspeak/favicon.ico
 // @homepage https://r4p3.net
-// @require https://raw.githubusercontent.com/meetselva/attrchange/master/js/attrchange.js
-// @require https://raw.githubusercontent.com/brandonaaron/livequery/1.1.1/jquery.livequery.js
+// @require https://cdn.rawgit.com/brandonaaron/livequery/master/jquery.livequery.min.js
+// @require https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange.js
 // @include *.planetteamspeak.com/*
 // @grant unsafeWindow
 // ==/UserScript==
