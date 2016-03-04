@@ -32,7 +32,7 @@
 // @grant GM_setClipboard
 // @grant GM_info
 // @grant GM_getMetadata
-// @run-at document-body
+// @run-at document-end
 // ==/UserScript==
 /*allow pasting*/
 /*jshint multistr: true */
