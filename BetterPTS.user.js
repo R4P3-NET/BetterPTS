@@ -2,7 +2,7 @@
 // @name PTS+
 // @description Better PlanetTeamspeak
 // @version 1.0.5
-// @match *.planetteamspeak.com*
+// @match *://*.planetteamspeak.com/*
 // @include *.planetteamspeak.com*
 // @icon https://www.planetteamspeak.com/wp-content/themes/planetteamspeak/favicon.ico
 // @require https://cdn.rawgit.com/brandonaaron/livequery/master/jquery.livequery.min.js
