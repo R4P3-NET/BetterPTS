@@ -5,7 +5,7 @@
 // @match *://*.planetteamspeak.com/*
 // @include *.planetteamspeak.com*
 // @icon https://www.planetteamspeak.com/wp-content/themes/planetteamspeak/favicon.ico
-// @require https://cdn.rawgit.com/brandonaaron/livequery/master/jquery.livequery.min.js
+// @require https://cdn.rawgit.com/brandonaaron/livequery/1.1.1/jquery.livequery.js
 // @require https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange.js
 // @supportURL https://github.com/R4P3-NET/BetterR4P3/issues/new
 // @contributionURL https://github.com/R4P3-NET/BetterR4P3/compare
